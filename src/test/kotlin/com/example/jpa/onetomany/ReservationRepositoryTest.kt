@@ -20,9 +20,18 @@ internal class ReservationRepositoryTest {
     @Test
     fun save_correctly() {
         // Arrange
-        val reservation = Reservation(
-            customerName = UUID.randomUUID().toString()
+        val travelers = listOf(
+            Traveler(name = UUID.randomUUID().toString()),
+            Traveler(name = UUID.randomUUID().toString()),
+            Traveler(name = UUID.randomUUID().toString())
         )
+        val reservation = Reservation(
+            customerName = UUID.randomUUID().toString(),
+            travelers = travelers
+        )
+        travelers.map {
+            it.reservation = reservation
+        }
 
         // Act
         val sut = reservationRepository
