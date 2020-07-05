@@ -10,6 +10,6 @@ data class Traveler(
 
     val name: String
 ) {
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @ManyToOne(fetch = FetchType.LAZY)
     lateinit var reservation: Reservation
 }
