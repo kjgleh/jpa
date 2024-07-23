@@ -3,15 +3,17 @@ server:
 spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:23306/jpa
+        url: jdbc:mysql://localhost:53306/jpa
         username: root
-        password: password
+        password:
     jpa:
-        hibernate:
-            ddl-auto: create
         show-sql: true
+        generate-ddl: true
+        hibernate:
+            ddl-auto: validate
         properties:
             hibernate:
+                dialect: org.hibernate.dialect.MySQLDialect
                 format_sql: true
 logging:
     level:
